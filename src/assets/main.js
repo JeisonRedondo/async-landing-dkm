@@ -1,4 +1,4 @@
-const API = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCgruoFs2kN2SFUZ3K7CkLog&part=snippet%2Cid&order=date&maxResults=50';
+const API = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCgruoFs2kN2SFUZ3K7CkLog&part=snippet%2Cid&order=date&maxResults=9';
 
 const content = null || document.getElementById('content');
 
@@ -19,13 +19,13 @@ async function fetchData(urlApi) {
 /**Esta es la sintaxis de una funcion que se llama asi misma, esto con el fin de que secarge apenas se ejecuta la app.*/
 (async () => {
     try {
-        const videos = await fetchData(API);
+        const videos = await fetchData(API, options);
         let view = `
         ${videos.items.map(video => `
         <div class="group relative">
             <div
                     class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-                    <img src="${video.snippet.thumbnail.high.url}" alt="${video.snippet.description}" class="w-full">
+                    <img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
             </div>
             <div class="mt-4 flex justify-between">
                 <h3 class="text-sm text-gray-700">
@@ -34,10 +34,12 @@ async function fetchData(urlApi) {
                 </h3>
             </div>
         </div>
-        `).slice(0,4).join('')}
+        `).slice(0,8).join('')}
         
         `;
-    } catch {
-
+        content.innerHTML = view;
+    } catch (error) {
+        console.log(error);
+        
     }
 })();
