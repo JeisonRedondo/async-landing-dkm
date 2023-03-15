@@ -29,14 +29,14 @@ async function fetchData(urlApi) {
                     <img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
             </div>
             <div class="mt-4 flex justify-between">
-                <h3 class="text-sm text-gray-700">
+                <h3 class="text-sm text-teal-200">
                     <span aria-hidden="true" class="absolute inset-0"></span>
                     ${video.snippet.title}
                 </h3>
             </div>
         </div>
         </a>
-        `).slice(0,8).join('')}
+        `).join('')}
         
         `;
         content.innerHTML = view;
@@ -46,11 +46,5 @@ async function fetchData(urlApi) {
     }
 })();
 
-// try {
-//     const apiUrl = new URL(url);
-//     const response = await fetch(apiUrl);
-//     const data = response.json();
-//     return data;
-// } catch {
-//     throw new Error('Something was wrong');
-// }
+
+// .slice(0, 8).join('')

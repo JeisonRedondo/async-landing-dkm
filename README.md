@@ -1,4 +1,4 @@
 # Proximamente:FARAON Bykes
-- Remodelar textos
+- Remodelar textos -
 - Añadir imagenes
 - Revisar estilos para la landing.
